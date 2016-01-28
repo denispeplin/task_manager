@@ -1,0 +1,29 @@
+{
+  "asi": false,
+  "bitwise": true,
+  "browser": true,
+  "camelcase": true,
+  "sub": true,
+  "curly": true,
+  "devel": true,
+  "forin": true,
+  "immed": true,
+  "indent": 2,      // Specify indentation spacing
+  "latedef": "nofunc",
+  "maxlen": 120,
+  "newcap": true,
+  "noarg": true,
+  "noempty": true,
+  "nonew": true,
+  "onevar": false,  // Allow only one `var` statement per function.
+  "predef": [
+    "$",
+    "alert",
+  ],
+  "quotmark": true,
+  "strict": false,  // Require `use strict` pragma  in every file.
+  "trailing": true,
+  "undef": true,
+  "unused": true,
+  "jquery": true
+}
