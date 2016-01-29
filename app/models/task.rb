@@ -3,6 +3,10 @@ class Task < ActiveRecord::Base
 
   belongs_to :user
 
+  validates :user, presence: true
+
+  delegate :email, to: :user, prefix: true
+
   aasm column: :state do
     state :new, initial: true
     state :started

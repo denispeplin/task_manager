@@ -7,6 +7,18 @@ RSpec.describe Task, type: :model do
     end
   end
 
+  describe 'delegations' do
+    specify do
+      expect(subject).to delegate_method(:email).to(:user).with_prefix
+    end
+  end
+
+  describe 'validations' do
+    specify do
+      expect(subject).to validate_presence_of(:user)
+    end
+  end
+
   describe 'state machine' do
     context 'new' do
       specify do
