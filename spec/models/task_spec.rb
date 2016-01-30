@@ -15,6 +15,7 @@ RSpec.describe Task, type: :model do
 
   describe 'validations' do
     specify do
+      expect(subject).to validate_presence_of(:name)
       expect(subject).to validate_presence_of(:user)
     end
   end

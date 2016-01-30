@@ -17,7 +17,7 @@ RSpec.describe WelcomeController, type: :controller do
     specify do
       get :index
       expect(response).to have_http_status(:success)
-      expect(assigns(:tasks)).to match_array([task1, task2, task3])
+      expect(assigns(:tasks)).to eq([task3, task2, task1])
     end
   end
 end

@@ -6,6 +6,10 @@
   )
 %>
 
+<div id="form-container">
+  <%= render 'form', task: Task.new %>
+</div>
+
 <table class="table table-bordered table-striped">
   <thead>
     <tr>
@@ -13,24 +17,10 @@
       <th>Description</th>
       <th>Status</th>
       <th>Created at</th>
+      <th></th>
     </tr>
   </thead>
-  <tbody>
-    <% @tasks.each do |task| %>
-    <tr>
-      <td>
-        <%= task.name %>
-      </td>
-      <td>
-        <%= task.description %>
-      </td>
-      <td>
-        <%= t task.state, scope: [:task, :state] %>
-      </td>
-      <td>
-        <%= l task.created_at %>
-      </td>
-    </tr>
-    <% end %>
+  <tbody id="tasks">
+    <%= render @tasks %>
   </tbody>
 </table>

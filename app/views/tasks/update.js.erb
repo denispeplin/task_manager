@@ -1,0 +1,10 @@
+<% if @task.valid? %>
+  $('tr#<%= dom_id(@task) %>').remove();
+  $('tbody#tasks').prepend("<%= escape_javascript(render @task) %>");
+  $('#form-container').html("<%= escape_javascript(render 'form', task: Task.new) %>");
+  $('tr#<%= dom_id(@task) %>').hide().show('slow');
+<% else %>
+  <% @task.errors.each do |attr, _error| %>
+    $('input#task_<%= attr %>').effect('highlight', { color: '#FF9090' });
+  <% end %>
+<% end %>
