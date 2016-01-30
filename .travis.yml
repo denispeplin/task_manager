@@ -1,0 +1,7 @@
+sudo: false
+cache: bundler
+script: bundle exec rspec
+rvm:
+  - 2.2
+gemfile:
+  - Gemfile

@@ -3,6 +3,10 @@ require 'rails_helper'
 RSpec.describe WelcomeController, type: :controller do
   render_views
 
+  let(:user) { create :user }
+
+  before { login_user(user) }
+
   describe 'GET #index' do
     let(:user1) { create :user }
     let(:user2) { create :user }
