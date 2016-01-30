@@ -18,7 +18,7 @@
   "onevar": false,  // Allow only one `var` statement per function.
   "predef": [
     "$",
-    "alert",
+    "alert"
   ],
   "quotmark": true,
   "strict": false,  // Require `use strict` pragma  in every file.

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title><%= ['TaskManager', yield(:title)].join(' - ') %></title>
+  <title><%= ['TaskManager', yield(:header_title)].join(' - ') %></title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
@@ -13,7 +13,7 @@
       <div class="page-header">
         <div class="row">
           <div class="col-md-6">
-            <h1><%= yield(:title) %></h1>
+            <h1><%= yield(:page_title) %></h1>
           </div>
           <div class="col-md-6 text-right">
             <% if user_signed_in? %>

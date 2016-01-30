@@ -1,8 +1,8 @@
-<% content_for :header_title, 'Tasks' %>
+<% content_for :header_title, 'My Tasks' %>
 <% content_for :page_title,
   raw(
-    'Tasks ' +
-    content_tag(:small, link_to('show my tasks', tasks_path))
+    'My Tasks ' +
+    content_tag(:small, link_to('show all tasks', root_path))
   )
 %>
 
@@ -13,7 +13,6 @@
       <th>Description</th>
       <th>Status</th>
       <th>Created at</th>
-      <th>User</th>
     </tr>
   </thead>
   <tbody>
@@ -30,9 +29,6 @@
       </td>
       <td>
         <%= l task.created_at %>
-      </td>
-      <td>
-        <%= task.user_email %>
       </td>
     </tr>
     <% end %>
