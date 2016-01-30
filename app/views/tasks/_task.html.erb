@@ -12,6 +12,9 @@
     <%= l task.created_at %>
   </td>
   <td>
+    <%= links_to_files(task) %>
+  </td>
+  <td>
     <%= link_to 'Edit', edit_task_path(task), remote: true, class: 'btn btn-primary btn-xs' %>
     <%= link_to 'Delete', task_path(task), method: :delete, remote: true, class: 'btn btn-danger btn-xs', data: { confirm: 'Are you sure?' } %>
   </td>

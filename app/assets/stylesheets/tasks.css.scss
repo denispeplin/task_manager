@@ -1,3 +1,11 @@
 #form-container {
   margin-bottom: 2em;
 }
+
+input[type="file"] {
+  margin-bottom: 1em;
+}
+
+.destroy-task-file {
+  color: #d9534f;
+}

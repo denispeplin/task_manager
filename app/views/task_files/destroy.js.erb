@@ -1,0 +1,3 @@
+$('tr#<%= dom_id(@task) %>').remove();
+$('tbody#tasks').prepend("<%= escape_javascript(render @task) %>");
+$('tr#<%= dom_id(@task) %>').hide().show();

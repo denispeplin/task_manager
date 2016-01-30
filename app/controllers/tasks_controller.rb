@@ -2,19 +2,21 @@ class TasksController < ApplicationController
   before_action :set_task, only: [:edit, :update, :destroy]
 
   def index
-    @tasks = current_user.tasks.order(updated_at: :desc)
+    @tasks = current_user.tasks.preload(:task_files).order(updated_at: :desc)
   end
 
   def create
     @task = current_user.tasks.new(permitted_params)
-    @task.save
+    save_with_attachments
+    redirect_to(tasks_path) && return if params[:attachment]
   end
 
   def edit
   end
 
   def update
-    @task.update_attributes(permitted_params)
+    @task.assign_attributes(permitted_params)
+    save_with_attachments && redirect_to(tasks_path)
   end
 
   def destroy
@@ -29,5 +31,14 @@ class TasksController < ApplicationController
 
   def permitted_params
     params.require(:task).permit(:name, :description)
+  end
+
+  def save_with_attachments
+    return unless @task.save && params[:attachment].present?
+    # param is singular because of Rails bug
+    # Rails includes non-singulap param into `task` param
+    params[:attachment].each do |attachment|
+      @task.task_files.create(attachment: attachment)
+    end
   end
 end

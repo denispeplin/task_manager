@@ -4,6 +4,7 @@ RSpec.describe Task, type: :model do
   describe 'associations' do
     specify do
       expect(subject).to belong_to(:user)
+      expect(subject).to have_many(:task_files).dependent(:destroy)
     end
   end
 

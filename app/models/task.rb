@@ -2,6 +2,7 @@ class Task < ActiveRecord::Base
   include AASM
 
   belongs_to :user
+  has_many :task_files, dependent: :destroy
 
   validates :name, :user, presence: true
 

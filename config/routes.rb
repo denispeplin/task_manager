@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :task_files, only: [:destroy]
+
   resources :tasks, only: [:index, :create, :edit, :update, :destroy]
 
   devise_for :users
