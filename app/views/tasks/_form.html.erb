@@ -4,8 +4,9 @@
   <div class="form-inputs">
     <%= f.input :name %>
     <%= f.input :description %>
-    <%= file_field_tag 'attachment[]', multiple: true, class: 'form-control' %>
   </div>
+
+  <%= file_field_tag 'attachment[]', multiple: true %>
 
   <div class="form-actions">
     <%= f.button :submit %>
