@@ -2,6 +2,8 @@ Rails.application.routes.draw do
   resources :task_files, only: [:destroy]
 
   resources :tasks, only: [:index, :create, :edit, :update, :destroy]
+  post 'tasks/:id/start' => 'state_controller#start', as: 'start_task'
+  post 'tasks/:id/finish' => 'state_controller#finish', as: 'finish_task'
 
   devise_for :users
   # The priority is based upon order of creation: first created -> highest priority.

@@ -22,42 +22,46 @@ RSpec.describe Task, type: :model do
   end
 
   describe 'state machine' do
+    let(:user) { create :user }
+
     context 'new' do
+      subject { create :task, user: user }
+
       specify do
         expect(subject).to be_new
       end
 
       describe '#start' do
         before do
-          subject.start
+          subject.start!
         end
 
         specify do
-          expect(subject).to be_started
+          expect(subject.reload).to be_started
         end
       end
 
       describe '#finish' do
         before do
-          subject.finish
+          subject.finish!
         end
 
         specify do
-          expect(subject).to be_finished
+          expect(subject.reload).to be_finished
         end
       end
     end
 
     context 'started' do
-      subject { build :task, :started }
+      subject { create :task, :started, user: user }
 
       describe '#finish' do
         before do
-          subject.finish
+          subject.finish!
         end
 
         specify do
-          expect(subject).to be_finished
+          expect(subject.reload).to be_finished
         end
       end
     end

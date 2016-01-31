@@ -7,6 +7,12 @@
   </td>
   <td>
     <%= t task.state, scope: [:task, :state] %>
+
+    <% if task.new? %>
+      <%= link_to 'Start', start_task_path(task), method: :post, remote: true, class: 'btn btn-success btn-xs' %>
+    <% elsif task.started? %>
+      <%= link_to 'Finish', finish_task_path(task), method: :post, remote: true, class: 'btn btn-success btn-xs' %>
+    <% end %>
   </td>
   <td>
     <%= l task.created_at %>
