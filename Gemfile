@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-
+ruby '2.2.3'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.5.1'
@@ -40,13 +40,14 @@ gem 'devise'
 gem 'devise-bootstrap-views'
 gem 'simple_form'
 gem 'paperclip'
+# don't use this gem in actual production, use it only for demo purposes
+gem 'faker', github: 'stympy/faker' # added Faker::Company.buzzword
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
   gem 'rspec-rails'
   gem 'factory_girl_rails'
-  gem 'faker', github: 'stympy/faker' # added Faker::Company.buzzword
 end
 
 group :development do
@@ -60,4 +61,9 @@ end
 
 group :test do
   gem 'shoulda-matchers'
+end
+
+group :production do
+  gem 'rails_12factor'
+  gem 'puma'
 end
