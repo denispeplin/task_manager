@@ -1,5 +1,6 @@
 <% if @task.valid? %>
   $('#form-container').html("<%= escape_javascript(render 'form', task: Task.new) %>");
+  setFileupload();
   <%= render partial: 'reload_row' %>
 <% else %>
   <% @task.errors.each do |attr, _error| %>

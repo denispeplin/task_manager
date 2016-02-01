@@ -2,6 +2,15 @@
 
 **Demo app**: [https://task-manager-vm.herokuapp.com](https://task-manager-vm.herokuapp.com)
 
+## Warning
+
+This application uses basic version of
+[jQuery-File-Upload](https://github.com/blueimp/jQuery-File-Upload), which helps
+to fight some Rails bugs (or features?), but also has some hard to fix bugs
+(or features?). In particular, the task form is being sent immediately after
+selecting or dragging in files (and un-setting autoUpload to false just breaks
+uploading completely). It'll require more time to find a proper solution.
+
 ## Install
 
 ```
