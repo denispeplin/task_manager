@@ -40,6 +40,7 @@ gem 'devise'
 gem 'devise-bootstrap-views'
 gem 'simple_form'
 gem 'paperclip'
+gem 'jquery-fileupload-rails'
 # don't use this gem in actual production, use it only for demo purposes
 gem 'faker', github: 'stympy/faker' # added Faker::Company.buzzword
 

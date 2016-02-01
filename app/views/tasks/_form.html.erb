@@ -1,4 +1,4 @@
-<%= simple_form_for task, html: { multipart: true }, authenticity_token: true, remote: true do |f| %>
+<%= simple_form_for task, html: { multipart: true, id: 'task_form' }, authenticity_token: true, remote: true do |f| %>
   <%= f.error_notification %>
 
   <div class="form-inputs">
@@ -9,6 +9,6 @@
   <%= file_field_tag 'attachment[]', multiple: true %>
 
   <div class="form-actions">
-    <%= f.button :submit %>
+    <%= f.button :submit, id: 'task_submit' %>
   </div>
 <% end %>

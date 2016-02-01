@@ -8,7 +8,6 @@ class TasksController < ApplicationController
   def create
     @task = current_user.tasks.new(permitted_params)
     save_with_attachments
-    redirect_to(tasks_path) && return if params[:attachment]
   end
 
   def edit
@@ -16,7 +15,7 @@ class TasksController < ApplicationController
 
   def update
     @task.assign_attributes(permitted_params)
-    save_with_attachments && redirect_to(tasks_path)
+    save_with_attachments
   end
 
   def destroy
