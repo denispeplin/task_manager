@@ -1,9 +1,7 @@
 FactoryGirl.define do
   factory :task do
-    name 'MyString'
-    description 'MyString'
-    state 'new'
-    user nil
+    sequence(:name) { |n| "#{Faker::Company.buzzword} #{n}" }
+    sequence(:description) { |n| "#{Faker::Company.catch_phrase} #{n}" }
 
     trait :started do
       state 'started'
